@@ -38,6 +38,17 @@ export default {
   },
   beforeCreate() {
     document.body.className = "body-bg-image";
+  },
+  methods: {
+    onSubmit() {
+      if (!this.gamertag) {
+        this.$toasted.show("Enter a gamertag", {
+          duration: 3000
+        });
+      } else {
+        this.$router.push(`/profile/${this.platform}/${this.gamertag}`);
+      }
+    }
   }
 };
 </script>
